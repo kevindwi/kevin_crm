@@ -36,3 +36,10 @@ DB_PORT=5432
 DB_DATABASE=nama_database
 DB_USERNAME=nama_pengguna
 DB_PASSWORD=kata_sandi
+```
+
+## Login
+Email             | Password  
+------------------|-----------
+manager@email.com | manager123
+sales@example.com | 12345678
