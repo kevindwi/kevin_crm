@@ -1,105 +1,11 @@
 --
--- PostgreSQL database cluster dump
---
-
--- Started on 2025-08-01 22:24:25 WIB
-
-SET default_transaction_read_only = off;
-
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-
---
--- Roles
---
-
-CREATE ROLE root;
-ALTER ROLE root WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS;
-
---
--- User Configurations
---
-
-
-
-
-
-
-
-
---
--- Databases
---
-
---
--- Database "template1" dump
---
-
-\connect template1
-
---
 -- PostgreSQL database dump
 --
 
 -- Dumped from database version 17.5 (Debian 17.5-1.pgdg120+1)
 -- Dumped by pg_dump version 17.5 (Ubuntu 17.5-1.pgdg24.04+1)
 
--- Started on 2025-08-01 22:24:26 WIB
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
--- Completed on 2025-08-01 22:24:26 WIB
-
---
--- PostgreSQL database dump complete
---
-
---
--- Database "kevin_crm" dump
---
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 17.5 (Debian 17.5-1.pgdg120+1)
--- Dumped by pg_dump version 17.5 (Ubuntu 17.5-1.pgdg24.04+1)
-
--- Started on 2025-08-01 22:24:26 WIB
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET transaction_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- TOC entry 3462 (class 1262 OID 41585)
--- Name: kevin_crm; Type: DATABASE; Schema: -; Owner: root
---
-
-CREATE DATABASE kevin_crm WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
-
-
-ALTER DATABASE kevin_crm OWNER TO root;
-
-\connect kevin_crm
+-- Started on 2025-08-02 01:02:33 WIB
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -117,10 +23,12 @@ SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
---
+--GRANT ALL ON SCHEMA public TO your_user;
 -- TOC entry 217 (class 1259 OID 41586)
 -- Name: cache; Type: TABLE; Schema: public; Owner: root
 --
+
+GRANT ALL ON SCHEMA public TO root;
 
 CREATE TABLE public.cache (
     key character varying(255) NOT NULL,
@@ -179,7 +87,7 @@ CREATE SEQUENCE public.customer_products_id_seq
 ALTER SEQUENCE public.customer_products_id_seq OWNER TO root;
 
 --
--- TOC entry 3463 (class 0 OID 0)
+-- TOC entry 3462 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: customer_products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -223,7 +131,7 @@ CREATE SEQUENCE public.customers_id_seq
 ALTER SEQUENCE public.customers_id_seq OWNER TO root;
 
 --
--- TOC entry 3464 (class 0 OID 0)
+-- TOC entry 3463 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -268,7 +176,7 @@ CREATE SEQUENCE public.leads_id_seq
 ALTER SEQUENCE public.leads_id_seq OWNER TO root;
 
 --
--- TOC entry 3465 (class 0 OID 0)
+-- TOC entry 3464 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: leads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -307,7 +215,7 @@ CREATE SEQUENCE public.migrations_id_seq
 ALTER SEQUENCE public.migrations_id_seq OWNER TO root;
 
 --
--- TOC entry 3466 (class 0 OID 0)
+-- TOC entry 3465 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -350,7 +258,7 @@ CREATE SEQUENCE public.products_id_seq
 ALTER SEQUENCE public.products_id_seq OWNER TO root;
 
 --
--- TOC entry 3467 (class 0 OID 0)
+-- TOC entry 3466 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -395,7 +303,7 @@ CREATE SEQUENCE public.projects_id_seq
 ALTER SEQUENCE public.projects_id_seq OWNER TO root;
 
 --
--- TOC entry 3468 (class 0 OID 0)
+-- TOC entry 3467 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: projects_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -455,7 +363,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO root;
 
 --
--- TOC entry 3469 (class 0 OID 0)
+-- TOC entry 3468 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: root
 --
@@ -525,8 +433,6 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: cache; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.cache (key, value, expiration) FROM stdin;
-\.
 
 
 --
@@ -535,8 +441,6 @@ COPY public.cache (key, value, expiration) FROM stdin;
 -- Data for Name: cache_locks; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.cache_locks (key, owner, expiration) FROM stdin;
-\.
 
 
 --
@@ -545,9 +449,7 @@ COPY public.cache_locks (key, owner, expiration) FROM stdin;
 -- Data for Name: customer_products; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.customer_products (id, customer_id, product_id, start_date, is_active, created_at, updated_at) FROM stdin;
-2	3	2	2025-08-01	t	2025-08-01 14:18:14	2025-08-01 14:18:14
-\.
+INSERT INTO public.customer_products (id, customer_id, product_id, start_date, is_active, created_at, updated_at) VALUES (2, 3, 2, '2025-08-01', true, '2025-08-01 14:18:14', '2025-08-01 14:18:14');
 
 
 --
@@ -556,9 +458,7 @@ COPY public.customer_products (id, customer_id, product_id, start_date, is_activ
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.customers (id, lead_id, name, phone, email, address, status, created_at, updated_at) FROM stdin;
-3	3	andi	086573652626	andi@email.com	Surabaya	active	2025-08-01 14:18:14	2025-08-01 14:18:14
-\.
+INSERT INTO public.customers (id, lead_id, name, phone, email, address, status, created_at, updated_at) VALUES (3, 3, 'andi', '086573652626', 'andi@email.com', 'Surabaya', 'active', '2025-08-01 14:18:14', '2025-08-01 14:18:14');
 
 
 --
@@ -567,10 +467,8 @@ COPY public.customers (id, lead_id, name, phone, email, address, status, created
 -- Data for Name: leads; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.leads (id, name, email, phone, address, status, created_by, notes, created_at, updated_at) FROM stdin;
-2	ujang	ujang@example.com	086573652626	Surabaya	new	1	hello	2025-07-31 06:16:31	2025-07-31 06:16:31
-3	andi	andi@email.com	086573652626	Surabaya	new	1	tes	2025-07-31 15:03:01	2025-07-31 15:03:01
-\.
+INSERT INTO public.leads (id, name, email, phone, address, status, created_by, notes, created_at, updated_at) VALUES (2, 'ujang', 'ujang@example.com', '086573652626', 'Surabaya', 'new', 1, 'hello', '2025-07-31 06:16:31', '2025-07-31 06:16:31');
+INSERT INTO public.leads (id, name, email, phone, address, status, created_by, notes, created_at, updated_at) VALUES (3, 'andi', 'andi@email.com', '086573652626', 'Surabaya', 'new', 1, 'tes', '2025-07-31 15:03:01', '2025-07-31 15:03:01');
 
 
 --
@@ -579,19 +477,17 @@ COPY public.leads (id, name, email, phone, address, status, created_by, notes, c
 -- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.migrations (id, migration, batch) FROM stdin;
-3	0001_01_01_000002_create_jobs_table	1
-4	2025_07_31_040402_create_leads_table	2
-5	2025_07_31_094603_create_products_table	3
-6	2025_07_31_110649_create_projects_table	4
-7	2025_07_31_123156_create_customers_table	4
-8	2025_07_31_123255_create_customer_products_table	4
-9	2025_07_31_152807_add_column_project_id_to_table_projects	5
-10	2025_07_31_160358_add_nullable_to_manager_id_on_projects_table	6
-11	2025_07_31_161149_add_column_product_id_to_table_projects	7
-12	2025_07_31_161330_add_column_product_id_to_table_projects	8
-13	0001_01_01_000001_create_cache_table	9
-\.
+INSERT INTO public.migrations (id, migration, batch) VALUES (3, '0001_01_01_000002_create_jobs_table', 1);
+INSERT INTO public.migrations (id, migration, batch) VALUES (4, '2025_07_31_040402_create_leads_table', 2);
+INSERT INTO public.migrations (id, migration, batch) VALUES (5, '2025_07_31_094603_create_products_table', 3);
+INSERT INTO public.migrations (id, migration, batch) VALUES (6, '2025_07_31_110649_create_projects_table', 4);
+INSERT INTO public.migrations (id, migration, batch) VALUES (7, '2025_07_31_123156_create_customers_table', 4);
+INSERT INTO public.migrations (id, migration, batch) VALUES (8, '2025_07_31_123255_create_customer_products_table', 4);
+INSERT INTO public.migrations (id, migration, batch) VALUES (9, '2025_07_31_152807_add_column_project_id_to_table_projects', 5);
+INSERT INTO public.migrations (id, migration, batch) VALUES (10, '2025_07_31_160358_add_nullable_to_manager_id_on_projects_table', 6);
+INSERT INTO public.migrations (id, migration, batch) VALUES (11, '2025_07_31_161149_add_column_product_id_to_table_projects', 7);
+INSERT INTO public.migrations (id, migration, batch) VALUES (12, '2025_07_31_161330_add_column_product_id_to_table_projects', 8);
+INSERT INTO public.migrations (id, migration, batch) VALUES (13, '0001_01_01_000001_create_cache_table', 9);
 
 
 --
@@ -600,11 +496,9 @@ COPY public.migrations (id, migration, batch) FROM stdin;
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.products (id, product_name, speed, price, description, is_active, created_at, updated_at) FROM stdin;
-1	Internet lambat	10 Mbps	150000.00	Lorem impsum	f	2025-07-31 10:39:32	2025-07-31 10:39:32
-2	Internet cepat	30 Mbps	50000.00	Lorem ipsum	t	2025-07-31 10:40:27	2025-07-31 10:40:27
-4	Super cepat	100 Mbps	300000.00	Lorem ipsum	t	2025-08-01 03:16:46	2025-08-01 03:16:46
-\.
+INSERT INTO public.products (id, product_name, speed, price, description, is_active, created_at, updated_at) VALUES (1, 'Internet lambat', '10 Mbps', 150000.00, 'Lorem impsum', false, '2025-07-31 10:39:32', '2025-07-31 10:39:32');
+INSERT INTO public.products (id, product_name, speed, price, description, is_active, created_at, updated_at) VALUES (2, 'Internet cepat', '30 Mbps', 50000.00, 'Lorem ipsum', true, '2025-07-31 10:40:27', '2025-07-31 10:40:27');
+INSERT INTO public.products (id, product_name, speed, price, description, is_active, created_at, updated_at) VALUES (4, 'Super cepat', '100 Mbps', 300000.00, 'Lorem ipsum', true, '2025-08-01 03:16:46', '2025-08-01 03:16:46');
 
 
 --
@@ -613,10 +507,8 @@ COPY public.products (id, product_name, speed, price, description, is_active, cr
 -- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.projects (id, lead_id, sales_id, status, manager_id, approval_date, notes, created_at, updated_at, product_id) FROM stdin;
-6	2	1	waiting	\N	\N	\N	2025-08-01 14:14:34	2025-08-01 14:14:34	4
-7	3	1	approved	3	2025-08-01 14:18:14	\N	2025-08-01 14:14:44	2025-08-01 14:18:14	2
-\.
+INSERT INTO public.projects (id, lead_id, sales_id, status, manager_id, approval_date, notes, created_at, updated_at, product_id) VALUES (6, 2, 1, 'waiting', NULL, NULL, NULL, '2025-08-01 14:14:34', '2025-08-01 14:14:34', 4);
+INSERT INTO public.projects (id, lead_id, sales_id, status, manager_id, approval_date, notes, created_at, updated_at, product_id) VALUES (7, 3, 1, 'approved', 3, '2025-08-01 14:18:14', NULL, '2025-08-01 14:14:44', '2025-08-01 14:18:14', 2);
 
 
 --
@@ -625,9 +517,7 @@ COPY public.projects (id, lead_id, sales_id, status, manager_id, approval_date, 
 -- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.sessions (id, user_id, ip_address, user_agent, payload, last_activity) FROM stdin;
-MXxUBu3cSLU6RaDIMGhkyD2OMvNmh4GZwvijdNvi	3	127.0.0.1	Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36	YTo0OntzOjY6Il90b2tlbiI7czo0MDoibHdsRVpUcHA4eEVLancwWG5rZkgxQnZCTW1LRnFqUDRCdHI0SHp0RiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MztzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2N1c3RvbWVycyI7fX0=	1754058192
-\.
+INSERT INTO public.sessions (id, user_id, ip_address, user_agent, payload, last_activity) VALUES ('MXxUBu3cSLU6RaDIMGhkyD2OMvNmh4GZwvijdNvi', 3, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibHdsRVpUcHA4eEVLancwWG5rZkgxQnZCTW1LRnFqUDRCdHI0SHp0RiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MztzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2N1c3RvbWVycyI7fX0=', 1754058192);
 
 
 --
@@ -636,14 +526,12 @@ MXxUBu3cSLU6RaDIMGhkyD2OMvNmh4GZwvijdNvi	3	127.0.0.1	Mozilla/5.0 (X11; Linux x86
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: root
 --
 
-COPY public.users (id, name, email, password, created_at, updated_at, role, remember_token) FROM stdin;
-1	sales	sales@example.com	$2y$12$2svNXlOLz/5C5dJS8oBEoeqamgT1jD3wUwRvptyNzxxK1COgiZLUm	2025-07-30 11:54:18	2025-07-30 11:54:18	sales	\N
-3	manager	manager@email.com	$2y$12$W3HYb02bVhTTwpEcaahf3elAoVRaVS8jVPkKXzCrARrwK4M214Cni	2025-08-01 09:29:09	2025-08-01 09:29:09	manager	\N
-\.
+INSERT INTO public.users (id, name, email, password, created_at, updated_at, role, remember_token) VALUES (1, 'sales', 'sales@example.com', '$2y$12$2svNXlOLz/5C5dJS8oBEoeqamgT1jD3wUwRvptyNzxxK1COgiZLUm', '2025-07-30 11:54:18', '2025-07-30 11:54:18', 'sales', NULL);
+INSERT INTO public.users (id, name, email, password, created_at, updated_at, role, remember_token) VALUES (3, 'manager', 'manager@email.com', '$2y$12$W3HYb02bVhTTwpEcaahf3elAoVRaVS8jVPkKXzCrARrwK4M214Cni', '2025-08-01 09:29:09', '2025-08-01 09:29:09', 'manager', NULL);
 
 
 --
--- TOC entry 3470 (class 0 OID 0)
+-- TOC entry 3469 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: customer_products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -652,7 +540,7 @@ SELECT pg_catalog.setval('public.customer_products_id_seq', 2, true);
 
 
 --
--- TOC entry 3471 (class 0 OID 0)
+-- TOC entry 3470 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -661,7 +549,7 @@ SELECT pg_catalog.setval('public.customers_id_seq', 3, true);
 
 
 --
--- TOC entry 3472 (class 0 OID 0)
+-- TOC entry 3471 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: leads_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -670,7 +558,7 @@ SELECT pg_catalog.setval('public.leads_id_seq', 4, true);
 
 
 --
--- TOC entry 3473 (class 0 OID 0)
+-- TOC entry 3472 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -679,7 +567,7 @@ SELECT pg_catalog.setval('public.migrations_id_seq', 13, true);
 
 
 --
--- TOC entry 3474 (class 0 OID 0)
+-- TOC entry 3473 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -688,7 +576,7 @@ SELECT pg_catalog.setval('public.products_id_seq', 4, true);
 
 
 --
--- TOC entry 3475 (class 0 OID 0)
+-- TOC entry 3474 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -697,7 +585,7 @@ SELECT pg_catalog.setval('public.projects_id_seq', 7, true);
 
 
 --
--- TOC entry 3476 (class 0 OID 0)
+-- TOC entry 3475 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
@@ -892,14 +780,8 @@ ALTER TABLE ONLY public.projects
     ADD CONSTRAINT projects_sales_id_foreign FOREIGN KEY (sales_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-08-01 22:24:27 WIB
+-- Completed on 2025-08-02 01:02:34 WIB
 
 --
 -- PostgreSQL database dump complete
---
-
--- Completed on 2025-08-01 22:24:27 WIB
-
---
--- PostgreSQL database cluster dump complete
 --
