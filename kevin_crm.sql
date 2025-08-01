@@ -406,7 +406,7 @@ COPY public.cache_locks (key, owner, expiration) FROM stdin;
 --
 
 COPY public.customer_products (id, customer_id, product_id, start_date, is_active, created_at, updated_at) FROM stdin;
-1	2	2	2025-08-01	t	2025-08-01 07:47:41	2025-08-01 07:47:41
+3	4	4	2025-08-01	t	2025-08-01 10:26:09	2025-08-01 10:26:09
 \.
 
 
@@ -415,7 +415,7 @@ COPY public.customer_products (id, customer_id, product_id, start_date, is_activ
 --
 
 COPY public.customers (id, lead_id, name, phone, email, address, status, created_at, updated_at) FROM stdin;
-2	3	andi	086573652626	andi@email.com	Surabaya	active	2025-08-01 07:47:41	2025-08-01 07:47:41
+4	3	andi	086573652626	andi@email.com	Surabaya	active	2025-08-01 10:26:09	2025-08-01 10:26:09
 \.
 
 
@@ -464,6 +464,8 @@ COPY public.products (id, product_name, speed, price, description, is_active, cr
 --
 
 COPY public.projects (id, lead_id, sales_id, status, manager_id, approval_date, notes, created_at, updated_at, product_id) FROM stdin;
+6	2	1	waiting	\N	\N	\N	2025-08-01 10:20:29	2025-08-01 10:20:29	2
+7	3	1	approved	3	2025-08-01 10:26:09	\N	2025-08-01 10:23:01	2025-08-01 10:26:09	4
 \.
 
 
@@ -472,7 +474,7 @@ COPY public.projects (id, lead_id, sales_id, status, manager_id, approval_date, 
 --
 
 COPY public.sessions (id, user_id, ip_address, user_agent, payload, last_activity) FROM stdin;
-3MGes1IFuytPvdZdPcK7n9yahLSonxpGYrkGvmwJ	1	127.0.0.1	Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36	YTozOntzOjY6Il90b2tlbiI7czo0MDoiYkE4bmx2T1F6RlIxS2cwWjJtV1JqMjVOWkh3Wm5hQjNjZFBnUHJoSiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9	1754040738
+6636LMBptP4EVnukTVmGeo2VijYGW5PwQgF44fC5	3	127.0.0.1	Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36	YTo0OntzOjY6Il90b2tlbiI7czo0MDoiaHUydFVuWW0xT0xxbU5TeTlyMFN1SHNtMzdVWEVTc0xMTU5RemtKZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MztzOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozMToiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2N1c3RvbWVycyI7fX0=	1754044259
 \.
 
 
@@ -482,7 +484,7 @@ COPY public.sessions (id, user_id, ip_address, user_agent, payload, last_activit
 
 COPY public.users (id, name, email, password, created_at, updated_at, role, remember_token) FROM stdin;
 1	sales	sales@example.com	$2y$12$2svNXlOLz/5C5dJS8oBEoeqamgT1jD3wUwRvptyNzxxK1COgiZLUm	2025-07-30 11:54:18	2025-07-30 11:54:18	sales	\N
-3	manager	manager@email.com	$2y$12$W3HYb02bVhTTwpEcaahf3elAoVRaVS8jVPkKXzCrARrwK4M214Cni	2025-08-01 09:29:09	2025-08-01 09:29:09	\N	\N
+3	manager	manager@email.com	$2y$12$W3HYb02bVhTTwpEcaahf3elAoVRaVS8jVPkKXzCrARrwK4M214Cni	2025-08-01 09:29:09	2025-08-01 09:29:09	manager	\N
 \.
 
 
@@ -490,14 +492,14 @@ COPY public.users (id, name, email, password, created_at, updated_at, role, reme
 -- Name: customer_products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
 
-SELECT pg_catalog.setval('public.customer_products_id_seq', 1, true);
+SELECT pg_catalog.setval('public.customer_products_id_seq', 3, true);
 
 
 --
 -- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
 
-SELECT pg_catalog.setval('public.customers_id_seq', 2, true);
+SELECT pg_catalog.setval('public.customers_id_seq', 4, true);
 
 
 --
@@ -525,7 +527,7 @@ SELECT pg_catalog.setval('public.products_id_seq', 4, true);
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: root
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 5, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 7, true);
 
 
 --
