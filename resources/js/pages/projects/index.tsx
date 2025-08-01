@@ -196,8 +196,8 @@ export default function Projects({ projects, leads, products, userRole }: Projec
                                                 <DropdownMenuTrigger className="flex items-center gap-2 rounded-lg bg-secondary px-3 py-2.5">
                                                     <div className="flex flex-col gap-1 text-start leading-none">
                                                         <span className="max-w-[17ch] truncate text-sm leading-none font-semibold">
-                                                            {errors.product_id != ''
-                                                                ? products.find((product) => product.id === errors.product_id)?.product_name
+                                                            {data.product_id != ''
+                                                                ? products.find((product) => product.id === data.product_id)?.product_name
                                                                 : 'Choose product'}
                                                         </span>
                                                     </div>
