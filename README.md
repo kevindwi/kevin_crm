@@ -50,6 +50,8 @@ DB_PASSWORD=12345
 psql -U postgres -d nama_database -f ./kevin_crm.sql
 ```
 
+atau import dengan dbeaver / pgAdmin
+
 ### Menjalankan
 
 ```bash
