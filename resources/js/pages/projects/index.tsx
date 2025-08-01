@@ -204,7 +204,6 @@ export default function Projects({ projects, leads, products, userRole }: Projec
                                                 </DropdownMenuTrigger>
                                                 <DropdownMenuContent align="start" className="w-66">
                                                     {products.map((product) => {
-                                                        console.log(product);
                                                         if (product.is_active)
                                                             return (
                                                                 <DropdownMenuItem key={product.id} onClick={() => setData('product_id', product.id)}>
@@ -270,11 +269,11 @@ export default function Projects({ projects, leads, products, userRole }: Projec
                                     <TableCell>{project.approval_date ? dateFormat(project.approval_date) : '-'}</TableCell>
                                     <TableCell>{project.notes ? <Textarea className="max-w-sm" value={project.notes} readOnly /> : '-'}</TableCell>
                                     <TableCell>
-                                        {userRole === 'sales' && (
+                                        {/*{userRole === 'sales' && (
                                             <Button size={'sm'} variant={'default'}>
                                                 Edit
                                             </Button>
-                                        )}
+                                        )}*/}
 
                                         {project.status == 'waiting' && userRole === 'manager' && (
                                             <div className="flex justify-center gap-2">
