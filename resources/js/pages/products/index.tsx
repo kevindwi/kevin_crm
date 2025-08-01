@@ -158,7 +158,7 @@ export default function Products({ products }: ProductIndexProps) {
                                 <TableHead>Price</TableHead>
                                 <TableHead>Status</TableHead>
                                 <TableHead>Description</TableHead>
-                                <TableHead className="text-center">Actions</TableHead>
+                                {/*<TableHead className="text-center">Actions</TableHead>*/}
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -180,12 +180,12 @@ export default function Products({ products }: ProductIndexProps) {
                                         )}
                                     </TableCell>
                                     <TableCell>{product.description}</TableCell>
-                                    <TableCell className="text-center">
+                                    {/*<TableCell className="text-center">
                                         <Button size={'sm'}>Edit</Button>
                                         <Button size={'sm'} variant={'destructive'} className="ml-2">
                                             Delete
                                         </Button>
-                                    </TableCell>
+                                    </TableCell>*/}
                                 </TableRow>
                             ))}
                         </TableBody>

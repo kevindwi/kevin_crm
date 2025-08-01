@@ -164,7 +164,7 @@ export default function Leads({ leads }: LeadIndexProps) {
                                 <TableHead>Status</TableHead>
                                 <TableHead>Assigned to</TableHead>
                                 <TableHead>Notes</TableHead>
-                                <TableHead className="text-center">Actions</TableHead>
+                                {/*<TableHead className="text-center">Actions</TableHead>*/}
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -178,12 +178,12 @@ export default function Leads({ leads }: LeadIndexProps) {
                                     <TableCell>{lead.status}</TableCell>
                                     <TableCell>{lead.created_by}</TableCell>
                                     <TableCell>{lead.notes}</TableCell>
-                                    <TableCell className="text-center">
+                                    {/*<TableCell className="text-center">
                                         <Button size={'sm'}>Edit</Button>
                                         <Button size={'sm'} variant={'destructive'} className="ml-2">
                                             Delete
                                         </Button>
-                                    </TableCell>
+                                    </TableCell>*/}
                                 </TableRow>
                             ))}
                         </TableBody>
