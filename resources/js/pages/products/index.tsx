@@ -69,7 +69,13 @@ export default function Products({ products }: ProductIndexProps) {
             <Head title="Products" />
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <div>
-                    <Dialog open={open} onOpenChange={setOpen}>
+                    <Dialog
+                        open={open}
+                        onOpenChange={() => {
+                            setOpen(!open);
+                            reset();
+                        }}
+                    >
                         <form>
                             <DialogTrigger asChild>
                                 <Button variant="default">
