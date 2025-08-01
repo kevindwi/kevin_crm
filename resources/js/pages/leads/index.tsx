@@ -51,7 +51,6 @@ export default function Leads({ leads }: LeadIndexProps) {
         post(route('leads.store'), {
             onSuccess: () => {
                 setOpen(false);
-                reset();
             },
             onError: (err) => {
                 console.error(err);
@@ -64,7 +63,13 @@ export default function Leads({ leads }: LeadIndexProps) {
             <Head title="Leads" />
             <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
                 <div>
-                    <Dialog open={open} onOpenChange={setOpen}>
+                    <Dialog
+                        open={open}
+                        onOpenChange={() => {
+                            setOpen(!open);
+                            reset();
+                        }}
+                    >
                         <form>
                             <DialogTrigger asChild>
                                 <Button variant="default">
