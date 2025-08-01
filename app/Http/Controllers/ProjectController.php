@@ -23,9 +23,7 @@ class ProjectController extends Controller
     {
         $user = Auth::user();
 
-        $user->role === 'manager'
-            ? $projects = Project::with('product', 'sales')->get()
-            : $projects = Project::where('sales_id', $user->id)->with('product', 'sales')->get();
+        $projects = Project::with('product', 'sales')->get();
 
         return Inertia::render("projects/index", [
             'leads' => Lead::query()->select('id', 'name')->get(),
