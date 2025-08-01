@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,6 +22,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     /* Products */
     Route::get('products', [ProductController::class, 'index'])->name('products.index');
     Route::post('products', [ProductController::class, 'store'])->name('products.store');
+
+    /* Projects */
+    Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::post('projects', [ProjectController::class, 'store'])->name('projects.store');
+
+    /* Approve */
+    Route::post('projects/{project}/approve', [ProjectController::class, 'approve'])->name('projects.approve');
+    /* Reject */
+    Route::post('projects/{project}/reject', [ProjectController::class, 'reject'])->name('projects.reject');
 });
 
 require __DIR__.'/settings.php';
